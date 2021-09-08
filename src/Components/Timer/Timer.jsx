@@ -5,8 +5,6 @@ const Timer = () => {
 
  const [timer, setTimer] = useState(configs.timer);
 
- console.log('rerender');
-
  useEffect(() => {
 
  }, [timer])

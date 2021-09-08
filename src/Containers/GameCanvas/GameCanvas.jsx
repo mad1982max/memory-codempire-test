@@ -1,53 +1,64 @@
-import { useState, useRef } from 'react'
+import { useState } from 'react'
+import Modal from '../../Components/Modal/Modal'
 import { configs, heroes } from '../../configs';
 import Timer from '../../Components/Timer/Timer'
+import Cell from '../../Components/Cell/Cell'
 import arrayFn from '../../Helpers/array';
 import "./canvasStyle.css";
 
 const GameCanvas = () => {
-  const [gameTable, setGameTable] = useState(() => arrayFn.buildNestedPairsArray(configs.gameDimension, heroes), []);
+  const [gameTable, setGameTable] = useState(() => arrayFn.buildNestedPairsArray(configs.gameDimension, heroes));
+  const [pairsInGame, setPairsInGame] = useState(() => gameTable.flat().map(item => item.name).filter(item => item !== 'empty'));
   const [choseCard, setChoseCard] = useState('');
-  const [score, setScore] = useState([]);
+  const [showModal, setShowModal] = useState(false);
   const cells = [...document.querySelectorAll('.cell')];
 
-  console.log(gameTable);
+  const closeModal = () => setShowModal(false)
 
   const handleClick = (e) => {
     const clickedCard = e.currentTarget;
     clickedCard.classList.toggle('rotated');
     const clickedHero = clickedCard.dataset.hero;
 
+    if (choseCard.length === 0) {
+      setChoseCard(clickedHero);
+      return;
+    }
 
+    if (choseCard === clickedHero) {
+      const pairsRemains = pairsInGame.filter(hero => hero !== clickedHero);
+      setPairsInGame(pairsRemains)
 
-    // if (clickedHero === 'empty') {
-    //   clickedCard.classList.add('guessed');
-    //   return;
-    // }
-
-    if (choseCard.length !== 0) {
-      if (choseCard === clickedHero) {
-        const guessedElements = [...document.querySelectorAll('.rotated')];
-        guessedElements.forEach(item => item.classList.add('guessed'));
-        setChoseCard('');
-
-      } else {
-        cells.forEach(cell => cell.classList.add('freezed'));
-
+      if (pairsRemains.length === 0) {
         setTimeout(() => {
-          setChoseCard('');
-
           cells.forEach(item => {
-            item.classList.remove('freezed');
-            if (!item.classList.contains('guessed')) {
-              item.classList.remove('rotated');
+            if (!item.classList.contains('rotated')) {
+              item.classList.add('rotated');
             }
           })
+          setShowModal(true)
         }, 1000)
-
       }
+
+      const guessedElements = [...document.querySelectorAll('.rotated')];
+      guessedElements.forEach(item => item.classList.add('guessed'));
+      setChoseCard('');
+
     } else {
-      setChoseCard(clickedHero)
+      cells.forEach(cell => cell.classList.add('freezed'));
+
+      setTimeout(() => {
+        setChoseCard('');
+
+        cells.forEach(item => {
+          item.classList.remove('freezed');
+          if (!item.classList.contains('guessed')) {
+            item.classList.remove('rotated');
+          }
+        })
+      }, 1000)
     }
+
   }
   return (
     <div className="game-wrapper">
@@ -55,31 +66,13 @@ const GameCanvas = () => {
         {
           gameTable.map((row, i) =>
             <div key={i} className='row'>
-              {row.map((hero, i) => {
-                const style = {
-                  'backgroundPosition': hero.position
-                }
-                const isEmpty = hero.name === 'empty'
-
-                return (
-                  <div
-                    onClick={handleClick}
-                    key={i + hero.name}
-                    data-hero={hero.name}
-                    className="cell">
-                    <div className="face front">
-                      <div className="logo"></div>
-                    </div>
-                    <div className="face back">
-                      <div className={isEmpty ? 'empty-hero' : 'hero'} style={style}></div>
-                    </div>
-                  </div>
-                )
-              }
-              )}
+              {row.map((hero, i) => <Cell key={i + hero.name} clicker={handleClick} hero={hero} />)}
             </div>)
         }
       </div>
+
+      {showModal && <Modal isWin={pairsInGame.length === 0} close={closeModal} />}
+
       <Timer></Timer>
     </div>
   )
