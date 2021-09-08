@@ -25,9 +25,19 @@
  
  transform-style: preserve-3d;
  transform-origin: center right;
- transition: transform 1s;
+ transition: 1s;
 }
 
+.guessed, .freezed {
+ pointer-events: none;
+}
+
+.guessed {
+ background: rgba(10, 248, 10, 0.822);
+ transition: 1s;
+ position: relative;
+
+}
 
 .rotated {
  transform: rotateY(180deg);
@@ -36,7 +46,6 @@
 }
 
 .face {
- /* padding: 5px; */
  position: absolute;
  width: 100%;
  height: 100%;
@@ -77,10 +86,13 @@
  width: 100%;
  height: 100%;
  background: rgb(56, 56, 56);
+ display: flex;
+ align-items: center;
+ justify-content: center;
 }
 
 .empty-hero:before {
- content: 'not in the game';
+ content: 'EMPTY SINGLE CARD';
  font-size: 14px;
  color: honeydew;
 }

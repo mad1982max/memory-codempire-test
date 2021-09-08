@@ -1,57 +1,61 @@
-
+import { useState, useRef } from 'react'
 import { configs, heroes } from '../../configs';
+import Timer from '../../Components/Timer/Timer'
 import arrayFn from '../../Helpers/array';
 import "./canvasStyle.css";
 
 const GameCanvas = () => {
+  const [gameTable, setGameTable] = useState(() => arrayFn.buildNestedPairsArray(configs.gameDimension, heroes), []);
+  const [choseCard, setChoseCard] = useState('');
+  const [score, setScore] = useState([]);
+  const cells = [...document.querySelectorAll('.cell')];
 
-  const table = [];
-
-
-  const initGame = dimension => {
-
-    let helperHerosTable = [];
-    let totalCells = dimension ** 2;
-
-    let remainHeroes = heroes.slice();
-    const isEven = totalCells % 2 === 0;
-    const pairsOfHeroes = Math.floor(totalCells / 2);
-
-    for (let i = 0; i < pairsOfHeroes; i++) {
-      const heroIndex = Math.floor(Math.random() * (remainHeroes.length));
-      const randomHero = remainHeroes[heroIndex];
-      remainHeroes.splice(heroIndex, 1);
-      helperHerosTable.push(randomHero)
-    }
-
-    helperHerosTable.push(...helperHerosTable)
-    if (!isEven) helperHerosTable.push({ name: 'empty' })
-    arrayFn.shuffle(helperHerosTable);
-
-    while (helperHerosTable.length > 0) {
-      const row = helperHerosTable.splice(0, configs.gameDimension);
-      table.push(row)
-    }
-  }
+  console.log(gameTable);
 
   const handleClick = (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    console.log('click', e.currentTarget);
-    e.currentTarget.classList.toggle('rotated')
+    const clickedCard = e.currentTarget;
+    clickedCard.classList.toggle('rotated');
+    const clickedHero = clickedCard.dataset.hero;
+
+
+
+    // if (clickedHero === 'empty') {
+    //   clickedCard.classList.add('guessed');
+    //   return;
+    // }
+
+    if (choseCard.length !== 0) {
+      if (choseCard === clickedHero) {
+        const guessedElements = [...document.querySelectorAll('.rotated')];
+        guessedElements.forEach(item => item.classList.add('guessed'));
+        setChoseCard('');
+
+      } else {
+        cells.forEach(cell => cell.classList.add('freezed'));
+
+        setTimeout(() => {
+          setChoseCard('');
+
+          cells.forEach(item => {
+            item.classList.remove('freezed');
+            if (!item.classList.contains('guessed')) {
+              item.classList.remove('rotated');
+            }
+          })
+        }, 1000)
+
+      }
+    } else {
+      setChoseCard(clickedHero)
+    }
   }
-
-  initGame(configs.gameDimension);
-
   return (
     <div className="game-wrapper">
       <div className="canvas">
         {
-          table.map((row, i) =>
+          gameTable.map((row, i) =>
             <div key={i} className='row'>
               {row.map((hero, i) => {
-                console.log(hero);
-
                 const style = {
                   'backgroundPosition': hero.position
                 }
@@ -76,6 +80,7 @@ const GameCanvas = () => {
             </div>)
         }
       </div>
+      <Timer></Timer>
     </div>
   )
 }
