@@ -33,7 +33,7 @@ const GameCanvas = () => {
         setTimeout(() => {
           cells.forEach(item => {
             if (!item.classList.contains('rotated')) {
-              item.classList.add('rotated');
+              item.classList.add('rotated', 'freezed');
             }
           })
           setShowModal(true)

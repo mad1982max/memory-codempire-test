@@ -2,7 +2,7 @@ import './cell.css'
 
 const Cell = ({ clicker, hero }) => {
  const style = {
-  'backgroundPosition': hero.position
+  'backgroundPosition': hero?.position
  }
  const isEmpty = hero.name === 'empty';
 

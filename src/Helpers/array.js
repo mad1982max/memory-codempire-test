@@ -1,5 +1,3 @@
-import { configs } from '../configs';
-
 const arrayFn = {
 
  shuffle: function (array) {
@@ -38,7 +36,7 @@ const arrayFn = {
   let pairsArrayWithHeroes = this.buildFlatPairsArray(dimension, heroes);
 
   while (pairsArrayWithHeroes.length > 0) {
-   const row = pairsArrayWithHeroes.splice(0, configs.gameDimension);
+   const row = pairsArrayWithHeroes.splice(0, dimension);
    nestedTableWithHeroes.push(row);
   }
   return nestedTableWithHeroes;
