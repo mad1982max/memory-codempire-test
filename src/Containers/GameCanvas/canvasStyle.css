@@ -1,13 +1,26 @@
 .canvas {
- display: flex;
- flex-direction: column;
- align-items: center;
- justify-content: center;
- margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
 }
 
 .row {
- display: flex;
+  display: flex;
+}
+
+.game-wrapper {
+  display: flex;
+  align-items:flex-start;
+  justify-content: space-evenly;
+}
+
+@media only screen and (max-width: 900px) {
+  .game-wrapper {
+    flex-direction: column;
+    align-items:center;
+  }
 }
 
 

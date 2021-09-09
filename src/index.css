@@ -3,6 +3,11 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+body {
+  background: rgba(250, 246, 38, 0.288);
+}
+
 button {
   cursor: pointer;
   border: none;
