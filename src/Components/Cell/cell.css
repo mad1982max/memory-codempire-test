@@ -64,7 +64,7 @@
 .hero {
   width: 100%;
   height: 100%;
-  background:  rgba(0, 0, 0, 0.2) center / contain no-repeat url('../../assets/images/avengers-list.png');
+  background:  rgba(0, 0, 0, 0.15) center / contain no-repeat url('../../assets/images/avengers-list.png');
   transform: scale(4.5);
 }
 

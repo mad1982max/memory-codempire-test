@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { useContext } from 'react';
 import Context from '../../context';
+import reload from '../../assets/images/refresh.png'
 import './controlPanel.css';
 
 const ControlPanel = ({ restart }) => {
@@ -16,6 +17,7 @@ const ControlPanel = ({ restart }) => {
         clearInterval(int);
         gameStatusCell.current.style.background = 'rgb(0, 102, 255)';
         break;
+
       case 'IN PROGRESS':
         setTimer(0);
         gameStatusCell.current.style.background = 'rgba(7, 138, 7, 0.863)';
@@ -24,9 +26,10 @@ const ControlPanel = ({ restart }) => {
           setTimer(prev => prev + 1);
         }, 1000)
         break;
+
       case 'END':
         gameStatusCell.current.style.background = 'rgba(141, 5, 5, 0.836)';
-        setAnalytics({ ...analytics, totalPlayedTime: analytics.totalPlayedTime + timer, totalGames: analytics.totalGames + 1 });
+        setAnalytics((prevState) => ({ ...prevState, totalPlayedTime: prevState.totalPlayedTime + timer, totalGames: prevState.totalGames + 1 }));
         clearInterval(int);
         break;
       default:
@@ -37,28 +40,33 @@ const ControlPanel = ({ restart }) => {
 
   return (
     <>
-      <div className="panel">
-        <div className="info game-start">
-          <p className='info-label'>Game status: </p>
-          <p ref={gameStatusCell} className='info-value status'>{analytics.gameStatus}</p>
+      <div className='panel'>
+        <button onClick={restart} className='restartBtn'>
+          <img src={reload} alt='reload' />
+        </button>
+        <div className='info-wrapper'>
+          <div className='info game-start'>
+            <p className='info-label'>Game status </p>
+            <p ref={gameStatusCell} className='info-value status'>{analytics.gameStatus}</p>
+          </div>
+          <div className='info total-timer-wrapper'>
+            <p className='info-label'>Total Timer </p>
+            <p className='info-value'>{analytics.totalPlayedTime}</p>
+          </div>
+          <div className='info total-games-wrapper'>
+            <p className='info-label'>Total Games </p>
+            <p className='info-value'>{analytics.totalGames}</p>
+          </div>
+          <div className='info timer-wrapper'>
+            <p className='info-label'>Current Timer </p>
+            <p className='info-value'>{timer}</p>
+          </div>
+          <div className='info score-wrapper'>
+            <p className='info-label'>Max Pairs </p>
+            <p className='info-value'>{analytics.maxPairs}</p>
+          </div>
         </div>
-        <div className="info total-timer-wrapper">
-          <p className='info-label'>Total Timer, sec: </p>
-          <p className='info-value'>{analytics.totalPlayedTime}</p>
-        </div>
-        <div className="info total-games-wrapper">
-          <p className='info-label'>Total Games: </p>
-          <p className='info-value'>{analytics.totalGames}</p>
-        </div>
-        <div className="info timer-wrapper">
-          <p className='info-label'>Current Timer: </p>
-          <p className='info-value'>{timer}</p>
-        </div>
-        <div className="info score-wrapper">
-          <p className='info-label'>Max Pairs: </p>
-          <p className='info-value'>{analytics.maxPairs}</p>
-        </div>
-        <button onClick={restart} className='restartBtn'>RESTART GAME</button>
+
       </div>
     </>
   )

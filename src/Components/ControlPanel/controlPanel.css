@@ -1,6 +1,9 @@
 .panel {
   padding: 10px;
   margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 .info {
@@ -25,12 +28,13 @@
 }
 
 .restartBtn {
-  padding: 10px;
-  background: rgba(250, 246, 38, 0.288);
-  color: rgb(54, 53, 53);
+  margin-right: 15px;
+  padding: 5px;
+  background: rgba(248, 246, 104, 0.288);
   border-radius: 6px;
-  font-weight: bold;
-  margin-top: 10px;
+  width: 35px;
+  height: 35px;
+  line-height: 35px;
   box-shadow: 0px 1px 3px 1px rgb(2, 2, 2, 0.4);
 }
 
@@ -41,4 +45,5 @@
 .status {
   color:cornsilk;
   border-radius: 5px;
+  margin: 6px;
 }
