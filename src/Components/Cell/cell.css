@@ -10,7 +10,6 @@
  margin: 5px;
  box-shadow: 1px 1px 2px 1px rgba(0,0,0, 0.3);
  cursor: pointer;
- 
  transform-style: preserve-3d;
  transform-origin: center right;
  transition: 1s;
@@ -24,7 +23,6 @@
  background: rgba(10, 248, 10, 0.822);
  transition: 1s;
  position: relative;
-
 }
 
 .rotated {
@@ -83,4 +81,11 @@
  content: 'EMPTY SINGLE CARD';
  font-size: 14px;
  color: honeydew;
+}
+
+.logo span{
+ font-size: 12px;
+ background: #000;
+ color: cornsilk;
+ line-height: 0.5;
 }

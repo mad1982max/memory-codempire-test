@@ -31,3 +31,9 @@
  border-radius: 6px;
  color: white
 }
+
+.modal-body {
+ text-align: center;
+ font-size: 18px;
+ line-height: 1.5;
+}

@@ -1,6 +1,6 @@
 const configs = {
  gameDimension: 3,
- timer: 5
+ timer: 20
 }
 
 const heroes = [

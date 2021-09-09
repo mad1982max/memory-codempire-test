@@ -1,9 +1,10 @@
 import { useState } from 'react'
-import Modal from '../../Components/Modal/Modal'
-import { configs, heroes } from '../../configs';
-import Timer from '../../Components/Timer/Timer'
-import Cell from '../../Components/Cell/Cell'
+import Modal from '../../Components/Modal/Modal';
+import ControlPanel from '../../Components/ControlPanel/ControlPanel';
+import Cell from '../../Components/Cell/Cell';
 import arrayFn from '../../Helpers/array';
+import { classHelper } from '../../Helpers/classManipulation'
+import { configs, heroes } from '../../configs';
 import "./canvasStyle.css";
 
 const GameCanvas = () => {
@@ -11,9 +12,23 @@ const GameCanvas = () => {
   const [pairsInGame, setPairsInGame] = useState(() => gameTable.flat().map(item => item.name).filter(item => item !== 'empty'));
   const [choseCard, setChoseCard] = useState('');
   const [showModal, setShowModal] = useState(false);
+
   const cells = [...document.querySelectorAll('.cell')];
 
-  const closeModal = () => setShowModal(false)
+
+  const repeatGame = () => {
+    classHelper.manipulation('cell', ['rotated', 'freezed', 'guessed'], 'remove')
+
+    setShowModal(false);
+    const generateNewArray = arrayFn.buildNestedPairsArray(configs.gameDimension, heroes);
+
+    const pairs = () => generateNewArray.flat().map(item => item.name).filter(item => item !== 'empty');
+
+    setTimeout(() => {
+      setGameTable(generateNewArray);
+      setPairsInGame(pairs);
+    }, 1000)
+  }
 
   const handleClick = (e) => {
     const clickedCard = e.currentTarget;
@@ -21,7 +36,16 @@ const GameCanvas = () => {
     const clickedHero = clickedCard.dataset.hero;
 
     if (choseCard.length === 0) {
-      setChoseCard(clickedHero);
+      if (clickedHero === "empty") {
+        classHelper.manipulation('cell', ['freezed'], 'add')
+        setTimeout(() => {
+          clickedCard.classList.toggle('rotated');
+          classHelper.manipulation('cell', ['freezed'], 'remove')
+        }, 1000)
+
+      } else {
+        setChoseCard(clickedHero);
+      }
       return;
     }
 
@@ -31,37 +55,27 @@ const GameCanvas = () => {
 
       if (pairsRemains.length === 0) {
         setTimeout(() => {
-          cells.forEach(item => {
-            if (!item.classList.contains('rotated')) {
-              item.classList.add('rotated', 'freezed');
-            }
-          })
+          classHelper.manipulationIfNotContain('cell', 'rotated', ['rotated', 'freezed'], 'add')
           setShowModal(true)
         }, 1000)
       }
 
-      const guessedElements = [...document.querySelectorAll('.rotated')];
-      guessedElements.forEach(item => item.classList.add('guessed'));
+      classHelper.manipulation('rotated', ['guessed'], 'add')
       setChoseCard('');
 
     } else {
-      cells.forEach(cell => cell.classList.add('freezed'));
+      classHelper.manipulation('cell', ['freezed'], 'add')
 
       setTimeout(() => {
         setChoseCard('');
-
-        cells.forEach(item => {
-          item.classList.remove('freezed');
-          if (!item.classList.contains('guessed')) {
-            item.classList.remove('rotated');
-          }
-        })
+        classHelper.manipulationIfNotContain('cell', 'guessed', ['rotated', 'freezed'], 'remove')
       }, 1000)
     }
 
   }
   return (
     <div className="game-wrapper">
+      <ControlPanel />
       <div className="canvas">
         {
           gameTable.map((row, i) =>
@@ -71,9 +85,7 @@ const GameCanvas = () => {
         }
       </div>
 
-      {showModal && <Modal isWin={pairsInGame.length === 0} close={closeModal} />}
-
-      <Timer></Timer>
+      {showModal && <Modal isWin={pairsInGame.length === 0} close={repeatGame} />}
     </div>
   )
 }

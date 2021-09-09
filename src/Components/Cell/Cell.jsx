@@ -12,7 +12,7 @@ const Cell = ({ clicker, hero }) => {
    data-hero={hero.name}
    className="cell">
    <div className="face front">
-    <div className="logo"></div>
+    <div className="logo"><span>{hero.name}</span></div>
    </div>
    <div className="face back">
     <div className={isEmpty ? 'empty-hero' : 'hero'} style={style}></div>
