@@ -9,17 +9,15 @@ const ControlPanel = () => {
 
  useEffect(() => {
   if (timer <= 0) {
-   console.log('gameOver', int);
    clearInterval(int)
   }
- }, [timer])
+ }, [timer, int])
 
  const startGame = () => {
   let interval = setInterval(() => {
    setInt(interval)
    setTimer(prev => prev - 1)
   }, 1000)
-  console.log('int', int);
  }
 
  return (
@@ -39,9 +37,7 @@ const ControlPanel = () => {
     </div>
     <button onClick={startGame}>START GAME</button>
    </div>
-
   </>
-
  )
 }
 

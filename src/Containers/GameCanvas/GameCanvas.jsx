@@ -13,9 +13,6 @@ const GameCanvas = () => {
   const [choseCard, setChoseCard] = useState('');
   const [showModal, setShowModal] = useState(false);
 
-  const cells = [...document.querySelectorAll('.cell')];
-
-
   const repeatGame = () => {
     classHelper.manipulation('cell', ['rotated', 'freezed', 'guessed'], 'remove')
 
@@ -76,16 +73,22 @@ const GameCanvas = () => {
   return (
     <div className="game-wrapper">
       <ControlPanel />
-      <div className="canvas">
-        {
-          gameTable.map((row, i) =>
-            <div key={i} className='row'>
-              {row.map((hero, i) => <Cell key={i + hero.name} clicker={handleClick} hero={hero} />)}
-            </div>)
-        }
-      </div>
+      <Table gameTable={gameTable} handleClick={handleClick} />
 
       {showModal && <Modal isWin={pairsInGame.length === 0} close={repeatGame} />}
+    </div>
+  )
+}
+
+const Table = ({ gameTable, handleClick }) => {
+  return (
+    <div className="canvas">
+      {
+        gameTable.map((row, i) =>
+          <div key={i} className='row'>
+            {row.map((hero, i) => <Cell key={i + hero.name} clicker={handleClick} hero={hero} />)}
+          </div>)
+      }
     </div>
   )
 }

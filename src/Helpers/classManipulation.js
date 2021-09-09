@@ -4,8 +4,6 @@ export const classHelper = {
   const actionFn = this.defineAction(action);
   const allElements = [...document.querySelectorAll(`.${baseClass}`)];
 
-  console.log(baseClass, notContainedClass, whatClass, action);
-  console.log(allElements);
   allElements.forEach(item => {
    if (!item.classList.contains(notContainedClass)) {
     actionFn(item, whatClass)
