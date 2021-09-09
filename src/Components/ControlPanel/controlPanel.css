@@ -30,12 +30,13 @@
 .restartBtn {
   margin-right: 15px;
   padding: 5px;
-  background: rgba(248, 246, 104, 0.288);
+  background: rgba(14, 13, 3, 0.842);
   border-radius: 6px;
   width: 35px;
   height: 35px;
   line-height: 35px;
   box-shadow: 0px 1px 3px 1px rgb(2, 2, 2, 0.4);
+  color: rgba(248, 246, 104, 0.288);
 }
 
 .restartBtn:active {

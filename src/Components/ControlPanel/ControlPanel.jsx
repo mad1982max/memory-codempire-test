@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { useContext } from 'react';
 import Context from '../../context';
-import reload from '../../assets/images/refresh.png'
+import reload from '../../assets/images/refresh.svg'
 import './controlPanel.css';
 
 const ControlPanel = ({ restart }) => {

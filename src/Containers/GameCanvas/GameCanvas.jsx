@@ -31,7 +31,7 @@ const GameCanvas = () => {
   }
 
   const repeatGame = () => {
-
+    setGuessedInARow(0);
     setAnalytics({ ...analytics, gameStatus: 'NOT STARTED' });
     setChoseCard('');
     setShowModal(false);
@@ -106,7 +106,6 @@ const GameCanvas = () => {
   }
   return (
     <div className='game-wrapper'>
-      <p>{analytics.maxPairs}</p>
       <ControlPanel restart={repeatGame} />
       <Table
         gameTable={gameTable}
@@ -125,17 +124,14 @@ const GameCanvas = () => {
 
 const Table = ({ gameTable, handleClick }) => {
   return (
-    <>
-      <div className='canvas'>
-        {
-          gameTable.map((row, i) =>
-            <div key={i} className='row'>
-              {row.map((hero, i) => <Cell key={i + hero.name} clicker={handleClick} hero={hero} />)}
-            </div>)
-        }
-      </div>
-    </>
-
+    <div className='canvas'>
+      {
+        gameTable.map((row, i) =>
+          <div key={i} className='row'>
+            {row.map((hero, i) => <Cell key={i + hero.name} clicker={handleClick} hero={hero} />)}
+          </div>)
+      }
+    </div>
   )
 }
 
