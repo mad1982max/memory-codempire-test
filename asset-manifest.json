@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/memory-codempire-test/static/css/main.7d4416fc.chunk.css",
+    "main.js": "/memory-codempire-test/static/js/main.03163fc6.chunk.js",
+    "main.js.map": "/memory-codempire-test/static/js/main.03163fc6.chunk.js.map",
+    "runtime-main.js": "/memory-codempire-test/static/js/runtime-main.ec649297.js",
+    "runtime-main.js.map": "/memory-codempire-test/static/js/runtime-main.ec649297.js.map",
+    "static/js/2.6b821caa.chunk.js": "/memory-codempire-test/static/js/2.6b821caa.chunk.js",
+    "static/js/2.6b821caa.chunk.js.map": "/memory-codempire-test/static/js/2.6b821caa.chunk.js.map",
+    "static/js/3.89580020.chunk.js": "/memory-codempire-test/static/js/3.89580020.chunk.js",
+    "static/js/3.89580020.chunk.js.map": "/memory-codempire-test/static/js/3.89580020.chunk.js.map",
+    "index.html": "/memory-codempire-test/index.html",
+    "static/css/main.7d4416fc.chunk.css.map": "/memory-codempire-test/static/css/main.7d4416fc.chunk.css.map",
+    "static/js/2.6b821caa.chunk.js.LICENSE.txt": "/memory-codempire-test/static/js/2.6b821caa.chunk.js.LICENSE.txt",
+    "static/media/cell.css": "/memory-codempire-test/static/media/avengers_logo.a16e0039.svg",
+    "static/media/memory.8a33a641.svg": "/memory-codempire-test/static/media/memory.8a33a641.svg",
+    "static/media/refresh.b4995814.svg": "/memory-codempire-test/static/media/refresh.b4995814.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ec649297.js",
+    "static/js/2.6b821caa.chunk.js",
+    "static/css/main.7d4416fc.chunk.css",
+    "static/js/main.03163fc6.chunk.js"
+  ]
+}
