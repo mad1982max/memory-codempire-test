@@ -77,7 +77,7 @@ const GameCanvas = () => {
       setGuessedInARow(prev => (prev + 1));
 
       if (pairsRemains.length === 0) {
-
+        setAnalytics(prevState => ({ ...prevState, gameStatus: 'END' }));
         setTimeout(() => {
           classHelper.manipulationIfNotContain('cell', 'rotated', ['rotated', 'freezed'], 'add');
 
@@ -85,7 +85,6 @@ const GameCanvas = () => {
 
           setTimeout(() => {
             setShowModal(true);
-            setAnalytics(prevState => ({ ...prevState, gameStatus: 'END' }));
           }, 1000);
         }, 1000);
       }

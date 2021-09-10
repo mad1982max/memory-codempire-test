@@ -1,7 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
 import { useContext } from 'react';
 import Context from '../../context';
-import reload from '../../assets/images/refresh.svg'
+import { timerParser } from '../../Helpers/timerParser';
+import reload from '../../assets/images/refresh.svg';
 import './controlPanel.css';
 
 const ControlPanel = ({ restart }) => {
@@ -51,7 +52,7 @@ const ControlPanel = ({ restart }) => {
           </div>
           <div className='info total-timer-wrapper'>
             <p className='info-label'>Total Timer </p>
-            <p className='info-value'>{analytics.totalPlayedTime}</p>
+            <p className='info-value'>{timerParser(analytics.totalPlayedTime)}</p>
           </div>
           <div className='info total-games-wrapper'>
             <p className='info-label'>Total Games </p>
@@ -59,7 +60,7 @@ const ControlPanel = ({ restart }) => {
           </div>
           <div className='info timer-wrapper'>
             <p className='info-label'>Current Timer </p>
-            <p className='info-value'>{timer}</p>
+            <p className='info-value'>{timerParser(timer)}</p>
           </div>
           <div className='info score-wrapper'>
             <p className='info-label'>Max Pairs </p>

@@ -12,7 +12,7 @@
     cursor: pointer;
     transform-style: preserve-3d;
     transform-origin: center right;
-    transition: 1s;
+    transition: transform 0.7s;
 }
 
 .guessed, .freezed {
@@ -21,7 +21,7 @@
 
 .guessed {
   background: rgba(29, 173, 29, 0.993);
-  transition: 1s;
+  transition: 0.7s;
   position: relative;
 }
 

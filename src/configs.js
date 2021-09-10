@@ -1,5 +1,5 @@
 const configs = {
-  gameDimension: 5,
+  gameDimension: 2,
   timer: 20,
   analyticsInfo:
   {
