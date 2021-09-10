@@ -48,3 +48,9 @@
   border-radius: 5px;
   margin: 6px;
 }
+
+@media only screen and (max-width: 500px) {
+  .panel {
+    margin-top: 5px;
+  }
+}

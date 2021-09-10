@@ -5,6 +5,7 @@
   background: rgb(37, 37, 4);
   color:rgb(255, 248, 220);
   padding: 10px;
+  font-size: 16px;
 }
 
 .game-logo {
@@ -18,4 +19,16 @@
 
 .game-logo.reverse {
   transform: scaleX(-1);
+}
+
+@media only screen and (max-width: 500px) {
+  .game-logo {
+    width: 30px;
+    height: 30px;
+  }
+
+  .App-header {
+    padding: 6px;
+    font-size: 14px;
+  }
 }

@@ -7,7 +7,7 @@ const Header = () => {
       <div className="game-logo">
         <img src={logo} alt="logo" />
       </div>
-      <h2 className="name">Memory Game</h2>
+      <p className="name">MEMORY GAME</p>
       <div className="game-logo reverse">
         <img src={logo} alt="logo" />
       </div>
