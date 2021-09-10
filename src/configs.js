@@ -1,5 +1,5 @@
 const configs = {
-  gameDimension: 2,
+  gameDimension: 5,
   analyticsInfo:
   {
     maxPairs: 0,
