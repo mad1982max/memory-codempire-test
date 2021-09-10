@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/memory-codempire-test/static/css/main.8fcf96d3.chunk.css",
+    "main.css": "/memory-codempire-test/static/css/main.6a4c1d11.chunk.css",
     "main.js": "/memory-codempire-test/static/js/main.1ad403b6.chunk.js",
     "main.js.map": "/memory-codempire-test/static/js/main.1ad403b6.chunk.js.map",
     "runtime-main.js": "/memory-codempire-test/static/js/runtime-main.ec649297.js",
@@ -10,8 +10,9 @@
     "static/js/3.89580020.chunk.js": "/memory-codempire-test/static/js/3.89580020.chunk.js",
     "static/js/3.89580020.chunk.js.map": "/memory-codempire-test/static/js/3.89580020.chunk.js.map",
     "index.html": "/memory-codempire-test/index.html",
-    "static/css/main.8fcf96d3.chunk.css.map": "/memory-codempire-test/static/css/main.8fcf96d3.chunk.css.map",
+    "static/css/main.6a4c1d11.chunk.css.map": "/memory-codempire-test/static/css/main.6a4c1d11.chunk.css.map",
     "static/js/2.6b821caa.chunk.js.LICENSE.txt": "/memory-codempire-test/static/js/2.6b821caa.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/memory-codempire-test/static/media/HeroesAssemble3DRegular-gz3p.87fc5015.otf",
     "static/media/cell.css": "/memory-codempire-test/static/media/avengers_logo_small.4af88360.svg",
     "static/media/memory.8a33a641.svg": "/memory-codempire-test/static/media/memory.8a33a641.svg",
     "static/media/refresh.b4995814.svg": "/memory-codempire-test/static/media/refresh.b4995814.svg"
@@ -19,7 +20,7 @@
   "entrypoints": [
     "static/js/runtime-main.ec649297.js",
     "static/js/2.6b821caa.chunk.js",
-    "static/css/main.8fcf96d3.chunk.css",
+    "static/css/main.6a4c1d11.chunk.css",
     "static/js/main.1ad403b6.chunk.js"
   ]
 }
