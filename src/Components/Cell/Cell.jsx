@@ -10,6 +10,7 @@ const Cell = ({ clicker, hero }) => {
     <div
       onClick={clicker}
       data-hero={hero.name}
+      data-id={hero.id}
       className='cell'>
       <div className='face front'>
         {/* <div className='logo'><span>{hero.name}</span></div> */}

@@ -10,6 +10,7 @@ const arrayFn = {
 
   buildFlatPairsArray: function (dimension, heroes) {
     let helperHerosTable = [];
+    let helperHerosIdTable = [];
     let totalCells = dimension ** 2;
 
     let remainHeroes = heroes.slice();
@@ -27,20 +28,26 @@ const arrayFn = {
     helperHerosTable.push(...helperHerosTable);
     if (!isEven) helperHerosTable.push({ name: 'empty' });
 
-    this.shuffle(helperHerosTable);
-    return helperHerosTable;
+    for (let i = 0; i < helperHerosTable.length; i++) {
+      helperHerosTable[i].id = `f${(~~(Math.random() * 1e8)).toString(16)}`;
+      helperHerosIdTable.push({ ...helperHerosTable[i] });
+    };
+
+    this.shuffle(helperHerosIdTable);
+    return helperHerosIdTable;
   },
 
   buildNestedPairsArray: function (dimension, heroes) {
     const nestedTableWithHeroes = [];
+
     let pairsArrayWithHeroes = this.buildFlatPairsArray(dimension, heroes);
+    const pairs = pairsArrayWithHeroes.map(item => item.name).filter(item => item !== 'empty');
 
     while (pairsArrayWithHeroes.length > 0) {
       const row = pairsArrayWithHeroes.splice(0, dimension);
       nestedTableWithHeroes.push(row);
     }
-    return nestedTableWithHeroes;
+    return { nestedTableWithHeroes, pairs };
   }
 }
-
 export default arrayFn;
