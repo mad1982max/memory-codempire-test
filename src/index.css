@@ -1,11 +1,18 @@
+@font-face {
+  font-family: 'Avengers';
+  src: url('./assets/fonts/HeroesAssemble3DRegular-gz3p.otf') format('otf');
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Avengers';
 }
 
 body {
   background: rgba(250, 246, 38, 0.288);
+  
 }
 
 button {

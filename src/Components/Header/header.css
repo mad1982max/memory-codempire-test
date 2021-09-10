@@ -23,12 +23,18 @@
 
 @media only screen and (max-width: 500px) {
   .game-logo {
-    width: 30px;
-    height: 30px;
+    width: 18px;
+    height: 18px;
   }
 
   .App-header {
     padding: 6px;
     font-size: 14px;
+    justify-content:start;
+    
+  }
+
+  .game-logo.reverse {
+    display: none;
   }
 }
