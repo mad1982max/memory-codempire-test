@@ -3,7 +3,6 @@ import GameCanvas from './Containers/GameCanvas/GameCanvas';
 import Header from './Components/Header/Header';
 import Context from './context';
 import { configs } from './configs'
-import './App.css';
 
 function App() {
   const [analytics, setAnalytics] = useState(configs.analyticsInfo);

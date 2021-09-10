@@ -1,10 +1,9 @@
-import './cell.css'
+import './cell.css';
 
 const Cell = ({ clicker, hero }) => {
   const style = {
     'backgroundPosition': hero?.position
-  }
-  const isEmpty = hero.name === 'empty';
+  };
 
   return (
     <div
@@ -17,7 +16,7 @@ const Cell = ({ clicker, hero }) => {
         <div className='logo'></div>
       </div>
       <div className='face back'>
-        <div className={isEmpty ? 'empty-hero' : 'hero'} style={style}></div>
+        <div className={hero.name === 'empty' ? 'empty-hero' : 'hero'} style={style}></div>
       </div>
     </div>
   )

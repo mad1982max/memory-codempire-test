@@ -25,7 +25,7 @@ const ControlPanel = ({ restart }) => {
         let interval = setInterval(() => {
           setInt(interval);
           setTimer(prev => prev + 1);
-        }, 1000)
+        }, 1000);
         break;
 
       case 'END':
@@ -40,36 +40,33 @@ const ControlPanel = ({ restart }) => {
   }, [analytics.gameStatus]);
 
   return (
-    <>
-      <div className='panel'>
-        <button onClick={restart} className='restartBtn'>
-          <img src={reload} alt='reload' />
-        </button>
-        <div className='info-wrapper'>
-          <div className='info game-start'>
-            <p className='info-label'>Game status </p>
-            <p ref={gameStatusCell} className='info-value status'>{analytics.gameStatus}</p>
-          </div>
-          <div className='info total-timer-wrapper'>
-            <p className='info-label'>Total Timer </p>
-            <p className='info-value'>{timerParser(analytics.totalPlayedTime)}</p>
-          </div>
-          <div className='info total-games-wrapper'>
-            <p className='info-label'>Total Games </p>
-            <p className='info-value'>{analytics.totalGames}</p>
-          </div>
-          <div className='info timer-wrapper'>
-            <p className='info-label'>Current Timer </p>
-            <p className='info-value'>{timerParser(timer)}</p>
-          </div>
-          <div className='info score-wrapper'>
-            <p className='info-label'>Max Pairs </p>
-            <p className='info-value'>{analytics.maxPairs}</p>
-          </div>
+    <div className='panel'>
+      <button onClick={restart} className='restartBtn'>
+        <img src={reload} alt='reload' />
+      </button>
+      <div className='info-wrapper'>
+        <div className='info game-start'>
+          <p className='info-label'>Game status </p>
+          <p ref={gameStatusCell} className='info-value status'>{analytics.gameStatus}</p>
         </div>
-
+        <div className='info total-timer-wrapper'>
+          <p className='info-label'>Total Timer </p>
+          <p className='info-value'>{timerParser(analytics.totalPlayedTime)}</p>
+        </div>
+        <div className='info total-games-wrapper'>
+          <p className='info-label'>Total Games </p>
+          <p className='info-value'>{analytics.totalGames}</p>
+        </div>
+        <div className='info timer-wrapper'>
+          <p className='info-label'>Current Timer </p>
+          <p className='info-value'>{timerParser(timer)}</p>
+        </div>
+        <div className='info score-wrapper'>
+          <p className='info-label'>Max Pairs </p>
+          <p className='info-value'>{analytics.maxPairs}</p>
+        </div>
       </div>
-    </>
+    </div>
   )
 }
 

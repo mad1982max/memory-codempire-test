@@ -16,4 +16,4 @@ const Modal = ({ close, isWin = false }) => {
   )
 }
 
-export default Modal
+export default Modal;

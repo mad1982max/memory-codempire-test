@@ -80,12 +80,12 @@
 .empty-hero:before {
   content: 'EMPTY SINGLE CARD';
   font-size: 14px;
-  color: honeydew;
+  color: rgb(235, 250, 235);
 }
 
 .logo span{
   font-size: 12px;
-  background: #000;
-  color: cornsilk;
+  background: rgb(0, 0, 0);
+  color: rgb(255, 248, 220);
   line-height: 0.5;
 }

@@ -15,7 +15,6 @@ const GameCanvas = () => {
   const [choseCard, setChoseCard] = useState({ clickedHero: '', clickedHeroId: '' });
   const [showModal, setShowModal] = useState(false);
   const [guessedInARow, setGuessedInARow] = useState({ count: 0, prevId: null });
-
   const { analytics, setAnalytics } = useContext(Context);
 
   const generateNewGameData = (dimension, heroes) => {
@@ -42,30 +41,26 @@ const GameCanvas = () => {
 
     setTimeout(() => {
       generateNewGameData(configs.gameDimension, heroes);
-    }, 1000)
+    }, 1000);
   }
 
   const handleClick = (e) => {
-
     if (analytics.gameStatus === 'NOT STARTED') {
       setAnalytics({ ...analytics, gameStatus: 'IN PROGRESS' });
     }
-
     const clickedCard = e.currentTarget;
     clickedCard.classList.toggle('rotated');
     const clickedHero = clickedCard.dataset.hero;
     const clickedHeroId = clickedCard.dataset.id;
 
     if (!choseCard.clickedHero) {
-
       if (clickedHero === 'empty') {
-        setGuessedInARow({ count: 0, prevId: null })
+        setGuessedInARow({ count: 0, prevId: null });
         classHelper.manipulation('cell', ['freezed'], 'add');
         setTimeout(() => {
           clickedCard.classList.toggle('rotated');
           classHelper.manipulation('cell', ['freezed'], 'remove');
-        }, 1000)
-
+        }, 1000);
       } else {
         setChoseCard({ clickedHero, clickedHeroId });
       }
@@ -82,7 +77,7 @@ const GameCanvas = () => {
         setTimeout(() => {
           classHelper.manipulationIfNotContain('cell', 'rotated', ['rotated', 'freezed'], 'add');
 
-          setGuessedInARow({ count: 0, prevId: null })
+          setGuessedInARow({ count: 0, prevId: null });
 
           setTimeout(() => {
             setShowModal(true);
@@ -94,7 +89,7 @@ const GameCanvas = () => {
 
     } else {
       classHelper.manipulation('cell', ['freezed'], 'add');
-      setGuessedInARow({ count: 0, prevId: null })
+      setGuessedInARow({ count: 0, prevId: null });
 
       setTimeout(() => {
         setChoseCard({ clickedHero: '', clickedHeroId: '' });
