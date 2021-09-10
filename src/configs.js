@@ -1,5 +1,5 @@
 const configs = {
-  gameDimension: 2,
+  gameDimension: 5,
   timer: 20,
   analyticsInfo:
   {
@@ -13,51 +13,51 @@ const configs = {
 const heroes = [
   {
     name: 'Star Lord',
-    position: '-28px 23px',
+    position: '-28px 19px',
   },
   {
     name: 'Black Widow',
-    position: '-9px -2px',
+    position: '-9px -7px',
   },
   {
     name: 'Nebula',
-    position: '8px -2px',
+    position: '9px -7px',
   },
   {
     name: 'War Machine',
-    position: '-26px -2px',
+    position: '-28px -7px',
   },
   {
     name: 'Ant-Man',
-    position: '25.5px -2px',
+    position: '28px -7px',
   },
   {
     name: 'Ms. Marvel',
-    position: '8px 23px',
+    position: '9px 19px',
   },
   {
     name: 'Hawkeye',
-    position: '27px 48px',
+    position: '27px 45px',
   },
   {
     name: 'Hulk',
-    position: '-10px 23px',
+    position: '-10px 19px',
   },
   {
     name: 'Thanos',
-    position: '27px 23px',
+    position: '28px 19px',
   },
   {
     name: 'Thor',
-    position: '-25px 48px',
+    position: '-28px 45px',
   },
   {
     name: 'Iron Man',
-    position: '9.5px 48px',
+    position: '9.5px 45px',
   },
   {
     name: 'Captain America',
-    position: '-7px 48px',
+    position: '-9px 45px',
   }]
 
 export { configs, heroes };
