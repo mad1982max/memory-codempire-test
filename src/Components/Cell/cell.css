@@ -89,3 +89,117 @@
   color: rgb(255, 248, 220);
   line-height: 0.5;
 }
+
+.star-lord {
+  background-position: -28px 19px;
+}
+
+.black-widow {
+  background-position: -9px -7px;
+}
+
+.nebula {
+  background-position: 9px -7px;
+}
+
+.war-machine {
+  background-position: -28px -7px;
+}
+
+.ant-man {
+  background-position: 28px -7px;
+}
+
+.ms-marvel {
+  background-position: 9px 19px;
+}
+
+.hawkeye {
+  background-position: 27px 45px;
+}
+
+.hulk {
+  background-position: -10px 19px;
+}
+
+.thanos {
+  background-position: 28px 19px;
+}
+
+.thor {
+  background-position: -28px 45px;
+}
+
+.captain-america {
+  background-position: -9px 45px;
+}
+
+.iron-man {
+  background-position: 9.5px 45px;
+}
+
+
+@media only screen and (max-width: 500px) {
+  .cell {
+    width: 56px;
+    height: 87px;
+    border-radius: 10px;
+    margin: 5px;
+  }
+
+  .logo {
+    background: center / contain no-repeat url('../../assets/images/avengers_logo_small.svg');
+  }
+
+  .star-lord {
+    background-position: -20.9px 14.2px;
+  }
+  
+  .black-widow {
+    background-position: -6.7px -5.2px;
+  }
+  
+  .nebula {
+    background-position: 7px -5.2px;
+  }
+  
+  .war-machine {
+    background-position: -20.9px -5.2px;
+  }
+  
+  .ant-man {
+    background-position: 20.9px -5.2px;
+  }
+  
+  .ms-marvel {
+    background-position: 6.7px 14.2px;
+  }
+  
+  .hawkeye {
+    background-position: 20.15px 33.6px;
+  }
+  
+  .hulk {
+    background-position: -6.5px 14.2px;
+  }
+  
+  .thanos {
+    background-position: 20.9px 14.2px;
+  }
+  
+  .thor {
+    background-position: -20.9px 33.6px;
+  }
+  
+  .captain-america {
+    background-position: -6.7px 33.6px;
+  }
+  
+  .iron-man {
+    background-position: 7px 33.6px;
+  }
+
+  .empty-hero:before {
+    font-size: 12px;
+  }
+}

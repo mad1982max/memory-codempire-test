@@ -12,51 +12,51 @@ const configs = {
 const heroes = [
   {
     name: 'Star Lord',
-    position: '-28px 19px',
+    className: 'star-lord'
   },
   {
     name: 'Black Widow',
-    position: '-9px -7px',
+    className: 'black-widow'
   },
   {
     name: 'Nebula',
-    position: '9px -7px',
+    className: 'nebula'
   },
   {
     name: 'War Machine',
-    position: '-28px -7px',
+    className: 'war-machine'
   },
   {
     name: 'Ant-Man',
-    position: '28px -7px',
+    className: 'ant-man'
   },
   {
-    name: 'Ms. Marvel',
-    position: '9px 19px',
+    name: 'Ms.Marvel',
+    className: 'ms-marvel'
   },
   {
     name: 'Hawkeye',
-    position: '27px 45px',
+    className: 'hawkeye'
   },
   {
     name: 'Hulk',
-    position: '-10px 19px',
+    className: 'hulk'
   },
   {
     name: 'Thanos',
-    position: '28px 19px',
+    className: 'thanos'
   },
   {
     name: 'Thor',
-    position: '-28px 45px',
+    className: 'thor'
   },
   {
     name: 'Iron Man',
-    position: '9.5px 45px',
+    className: 'iron-man'
   },
   {
     name: 'Captain America',
-    position: '-9px 45px',
+    className: 'captain-america'
   }]
 
 export { configs, heroes };
